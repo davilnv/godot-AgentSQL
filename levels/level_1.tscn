@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://bihr0p6yc3vld"]
+
+[ext_resource type="Texture2D" uid="uid://gksx72weotnu" path="res://assets/Sprites/CartoonDetective/Idle/Idle_01.png" id="1_8ad75"]
+[ext_resource type="Texture2D" uid="uid://b4wimx7epcep2" path="res://assets/Sprites/CartoonDetective/Idle/Idle_02.png" id="2_s7sfe"]
+[ext_resource type="Texture2D" uid="uid://dt2wxnvdlth3x" path="res://assets/Sprites/CartoonDetective/Idle/Idle_03.png" id="3_eepgn"]
+[ext_resource type="Texture2D" uid="uid://cu0152d4ykr12" path="res://assets/Sprites/CartoonDetective/Idle/Idle_04.png" id="4_h6fdq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cugge"]
+radius = 6.0
+height = 62.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1umio"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8ad75")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_s7sfe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_eepgn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_h6fdq")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="Level1" type="Node2D"]
+position = Vector2(-21, 1)
+
+[node name="AgentBody" type="CharacterBody2D" parent="."]
+position = Vector2(75, 42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AgentBody"]
+shape = SubResource("CapsuleShape2D_cugge")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AgentBody"]
+position = Vector2(9, 3)
+scale = Vector2(1.67188, 1.67188)
+sprite_frames = SubResource("SpriteFrames_1umio")
+animation = &"Idle"
+frame_progress = 0.605277
